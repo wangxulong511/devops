@@ -1,7 +1,7 @@
 druid连接池推荐配置
 
 博客原文http://rabbitgyk.com/2018/01/04/druid-configuration/
-https://www.jianshu.com/u/a0da4000c19b
+https://www.jianshu.com/p/e75d73129f51
 
 Druid是阿里巴巴开源平台上的一个项目，整个项目由数据库连接池、插件框架和SQL解析器组成。该项目主要是为了扩展JDBC的一些限制，可以让程序员实现一些特殊的需求，比如向密钥服务请求凭证、统计SQL信息、SQL性能收集、SQL注入检查、SQL翻译等，程序员可以通过定制来实现自己需要的功能。
 本文的配置是摘自公司内部的实践出来的druid连接池最佳配置，拿去使用的时候，个别参数需要根据自己公司的环境情况进行调整，以达到最佳的效果。
