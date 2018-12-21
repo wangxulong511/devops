@@ -7,3 +7,5 @@ https://github.com/wangxulong511/mongomon
 Grafana 数据库监控平台
 https://www.jianshu.com/p/20bdb7fbe350?from=timeline&isappinstalled=0
 
+ES6
+https://www.bilibili.com/video/av35882450?from=search&seid=13217966141035681599
