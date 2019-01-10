@@ -1,0 +1,49 @@
+使用percona 模板监控mysql
+
+[root@tomato02 data]# rpm -ivh percona-zabbix-templates-1.1.7-2.noarch.rpm
+
+Scripts are installed to /var/lib/zabbix/percona/scripts
+Templates are installed to /var/lib/zabbix/percona/templates
+/var/lib/zabbix/percona/scripts是监控脚本目录
+/var/lib/zabbix/percona/templates是监控mysql的xml模版目录(xml已经过期，使用自己的)
+
+
+# 监控获取MySQL状态的;
+/var/lib/zabbix/percona/scripts/get_mysql_stats_wrapper.sh
+# 配置连接数据库用户名密码的,用shell来调用PHP;
+/var/lib/zabbix/percona/scripts/ss_get_mysql_stats.php
+# Zabbix-agent端监控MySQL的配置文件;
+/var/lib/zabbix/percona/templates/userparameter_percona_mysql.conf
+ 
+
+
+
+把配置文件复制到zabbix-agent目录下
+cp /var/lib/zabbix/percona/templates/userparameter_percona_mysql.conf /etc/zabbix/zabbix_agentd.d/
+
+vim /var/lib/zabbix/percona/scripts/get_mysql_stats_wrapper.sh
+RES=`HOME=~zabbix /usr/local/mysql/bin/mysql -e 'SHOW SLAVE STATUS\G' | egrep '(Slave_IO_Running|Slave_SQL_Running):' | awk -F: '{print $2}' | tr '\n' ','`
+
+
+测试脚本
+/var/lib/zabbix/percona/scripts/get_mysql_stats_wrapper.sh gg
+
+测试主从
+sh /var/lib/zabbix/percona/scripts/get_mysql_stats_wrapper.sh running-slave
+
+
+在zabbix agent端安装php
+yum -y install php*
+
+vim /var/lib/zabbix/percona/scripts/ss_get_mysql_stats.php
+$mysql_user = 'zabbix';
+$mysql_pass = 'zabbix';
+$mysql_port = 3306;
+$mysql_socket = '/tmp/mysql3306.sock';
+
+
+
+配置 Zabbix Server
+1、去 https://www.percona.com/downloads/percona-monitoring-plugins/ 下载 Percona Monitoring Plugins 最新 tar.gz 源码包（如果使用 Zabbix 3.0，自带模板旧，并不能导入使用）
+3、通过 Zabbix Web 界面 (Configuration -> Templates -> Import) 导入 XML 模板，注意要另外选择上 Screens.
+4、配置主机关联上 Percona MySQL Server Template 模板。
