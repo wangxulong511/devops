@@ -34,6 +34,8 @@ sh /var/lib/zabbix/percona/scripts/get_mysql_stats_wrapper.sh running-slave
 
 在zabbix agent端安装php
 yum -y install php*
+or
+yum install php-cli php-mysql -y
 
 vim /var/lib/zabbix/percona/scripts/ss_get_mysql_stats.php
 $mysql_user = 'zabbix';
