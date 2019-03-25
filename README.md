@@ -64,11 +64,13 @@ https://www.cnblogs.com/nulige/p/6683375.html
 
 高效运维工具
 
-https://www.cnblogs.com/clsn/
-惨绿少年
-对MySQL 基础，优化，高可用提供了参考
+https://www.cnblogs.com/clsn/  
+惨绿少年  
+对MySQL 基础，优化，高可用提供了参考  
 
-数据库管理
-Archery
-https://github.com/hhyo/Archery
-SQL审核查询平台，支持SQ优化(SQLAdvisor|SOAR|SQLTuning)、脱敏查询(MySQL/MsSQL)、慢日志管理、表结构对比、会话管理、阿里云RDS管理
+数据库管理  
+
+Archery  
+SQL审核查询平台，支持SQ优化(SQLAdvisor|SOAR|SQLTuning)、脱敏查询(MySQL/MsSQL)、慢日志管理、表结构对比、会话管理、阿里云RDS管理  
+https://github.com/hhyo/Archery  
+
