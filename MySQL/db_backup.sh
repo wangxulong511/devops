@@ -2,7 +2,7 @@
 source /etc/profile
 cd /data/backup
 MAXIMUM_BACKUP_FILES=10              #最大备份文件数
-BACKUP_FOLDERNAME="pstestyldb_full"        #数据库备份文件的主目录
+BACKUP_FOLDERNAME="testyldb_full"        #数据库备份文件的主目录
 DB_HOSTNAME="localhost"              #mysql所在主机的主机名
 DB_USERNAME="root"                   #mysql登录用户名
 DB_PASSWORD="root"              #mysql登录密码
@@ -14,8 +14,8 @@ mycnf=/etc/my.cnf
 BEGIN_TIME=$(date +"%Y-%m-%d %H:%M:%S") #备份开始时间
 BACKUP_TYPE="physical"  # innobackupex 为物理备份，mysqldump为逻辑备份
 BACKUP_DATE=$(date +"%Y%m%d") # 备份时间
-INSTANCE_NAME="磐石压力测试3306" #备份实例名
-INSTANCE_ID="jkpsyltest2483306" #备份实例ID
+INSTANCE_NAME="压力测试3306" #备份实例名
+INSTANCE_ID="yltest3306" #备份实例ID
 #FINISH_TIME   #备份完成时间
 #BACK_FILENAME  # 备份文件名
 #=========
