@@ -1,0 +1,51 @@
+# Windows平台mysqlbackup
+```
+rem ******MySQL backup start******
+@echo off
+set backup_path=C:\backup
+set mysql="C:\test\mysql\mysql-5.7.21-winx64"
+set databases=test
+set username=root
+set password=root
+set Ymd=%date:~,4%%date:~5,2%%date:~8,2%
+
+:: create dir
+
+if not exist %backup_path% (
+
+echo %backup_path%
+
+mkdir %backup_path% 2>nul
+
+)
+
+if not exist %backup_path% (
+
+echo Backup path: %backup_path% not exists, createdir failed.
+
+goto exit
+
+)
+if  exist %backup_path%\%databases%_%Ymd%.rar (
+
+echo %backup_path%\%databases%_%Ymd%.rar
+del  %backup_path%\%databases%_%Ymd%.rar
+
+)
+
+::cd /d %backup_path%
+%mysql%\bin\mysqldump --single-transaction -u%username% -p%password% --all-databases --routines  --default-character-set=utf8  --port=3339 > %backup_path%\%databases%_%Ymd%.sql
+
+
+if not exist %backup_path%\%databases%_%Ymd%.rar (
+
+echo %backup_path%\%databases%_%Ymd%.rar
+
+"C:\Program Files\WinRAR\WinRAR.exe" a -k -s -m3 -df %backup_path%\%databases%_%Ymd%.rar  %backup_path%\%databases%_%Ymd%.sql
+)
+
+
+del  %backup_path%\%databases%_%Ymd%.sql
+@echo on
+rem ******MySQL backup end******
+```
