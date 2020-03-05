@@ -35,6 +35,9 @@ cat redis_bigkeys.log | sort -k 3r
 时间： 2017-07-04
 ```
 
+rdbtools
+
+```
 发现redis使用量突然暴增，于是紧急扩容redis，不能影响服务运行。扩容之后，赶紧查找原因，突破口就是寻找存在哪些大key。
 
 1. 将redis的dump.rdb文件下载到本地（一般redis的持久化文件以rdb的方式存储，在redis配置文件可以找到dump.rdb的存储路径）。
@@ -49,3 +52,4 @@ GITHUP地址：https://github.com/sripathikrishnan/redis-rdb-tools/
 
 分析redis key大小的几种方法
 https://www.cnblogs.com/ExMan/p/11586751.html
+```
