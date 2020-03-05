@@ -30,7 +30,7 @@ python find_bigkey host 6379 | tee -a redis_bigkeys.log
 
 cat redis_bigkeys.log | sort -k 3r
 
-可以通过python find_bigkey host 6379 来执行，支持阿里云Redis的主从版本和集群版本的大key查找，默认大key的阈值为10240，也就是对于string类型的value大于10240的认为是大key，对于list的话如果list长度大于10240认为是大key，对于hash的话如果field的数目大于10240认为是大key。另外默认该脚本每次搜索1000个key，对业务的影响比较低，不过最好在业务低峰期进行操作，避免scan命令对业务的影响。
+可以通过python find_bigkey host 6379 来执行，支持阿里云Redis的主从版本和集群版本的大key查找，默认大key的阈值为10240，也就是对于string类型的value  大于10240的认为是大key，对于list的话如果list长度大于10240认为是大key，对于hash的话如果field的数目大于10240认为是大key。另外默认该脚本每次搜索1000 个key，对业务的影响比较低，不过最好在业务低峰期进行操作，避免scan命令对业务的影响。
 
 时间： 2017-07-04
 ```
