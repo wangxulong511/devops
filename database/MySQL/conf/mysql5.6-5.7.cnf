@@ -66,6 +66,7 @@ long_query_time = 2
 min_examined_row_limit = 100
 log-bin-trust-function-creators = 1
 log-slave-updates = 1
+log_timestamps=SYSTEM
 
 # innodb settings #
 innodb_page_size = 16384
