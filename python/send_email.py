@@ -17,7 +17,7 @@ def sendEmail(from_addr,password,to_addr,centext,smtp_server):
         msg = MIMEText(centext, 'html', 'utf-8') # 文本邮件
         msg['From'] = _format_addr('捷顺金科运维 <%s>' % from_addr)
         msg['To'] = _format_addr('收件人: <%s>' % to_addr)
-        msg['Subject'] = _format_addr('预付卡数据库用户密码过期警告')
+        msg['Subject'] = Header('预付卡数据库用户密码过期警告', 'utf-8').encode()
         #server = smtplib.SMTP(smtp_server, 25)
         server = smtplib.SMTP_SSL(smtp_server, 465)
         #server.starttls() # 调用starttls()方法，就创建了安全连接
