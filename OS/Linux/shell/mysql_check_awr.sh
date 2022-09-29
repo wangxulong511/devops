@@ -1,3 +1,5 @@
+源码地址：https://mp.weixin.qq.com/s/mZ6MkVE7aVIK_VKGJDAvjw
+
 #!/bin/bash
 # by Sharkz@fankun.com
 # 2022-07-8
